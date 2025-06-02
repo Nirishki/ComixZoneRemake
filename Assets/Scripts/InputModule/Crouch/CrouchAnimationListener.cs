@@ -6,24 +6,27 @@ public class CrouchAnimationListener : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.Subscribe<PlayerCrouchEvent>(OnCrouch);
-        EventBus.Subscribe<PlayerUncrouchEvent>(OnUncrouch);
+        Debug.Log("Crouch Listener Enabled");
+        EventBus.Subscribe<PlayerCrouchEvent>(OnCrouchEvent);
+        EventBus.Subscribe<PlayerUncrouchEvent>(OnUncrouchEvent);
     }
 
     private void OnDisable()
     {
-        EventBus.Unsubscribe<PlayerCrouchEvent>(OnCrouch);
-        EventBus.Unsubscribe<PlayerUncrouchEvent>(OnUncrouch);
+        EventBus.Unsubscribe<PlayerCrouchEvent>(OnCrouchEvent);
+        EventBus.Unsubscribe<PlayerUncrouchEvent>(OnUncrouchEvent);
     }
 
-    private void OnCrouch(PlayerCrouchEvent evt)
+    private void OnCrouchEvent(PlayerCrouchEvent evt)
     {
         animationDriver.SetBool("IsCrouching", true);
     }
 
-    private void OnUncrouch(PlayerUncrouchEvent evt)
+    private void OnUncrouchEvent(PlayerUncrouchEvent evt)
     {
+        Debug.Log("Crouch Released Event Triggered"); // ? חשוב
         animationDriver.SetBool("IsCrouching", false);
     }
+
 
 }

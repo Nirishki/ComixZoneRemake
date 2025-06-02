@@ -56,6 +56,7 @@ namespace StarterAssets
         public void OnCrouch(InputValue value)
         {
             crouch = value.isPressed;
+            Debug.Log($"Crouch isPressed: {value.isPressed}"); // בדוק אם מופיע true ואז false
         }
 
 

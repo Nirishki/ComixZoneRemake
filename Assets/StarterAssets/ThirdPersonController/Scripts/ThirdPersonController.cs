@@ -72,6 +72,8 @@ namespace StarterAssets
 
         private bool _shouldRotate = false;
         private float _desiredRotationY = 0f;
+        private bool wasCrouching = false;
+
 
 
         private bool IsCurrentDeviceMouse
@@ -121,24 +123,24 @@ namespace StarterAssets
             Move();
 
             /////////TEST///////
-            
-            if (_input.punch)
-            {
-                Debug.Log("PUNCH PRESSED");
-                InputBuffer.Instance.Add(InputType.Punch);
-                _input.punch = false;
+            ///
 
-            }
 
-            if (_input.crouch)
+            if (_input.crouch && !wasCrouching)
             {
                 InputBuffer.Instance.Add(InputType.Crouch);
+                Debug.Log("Crouch pressed"); 
                 EventBus.Publish(new PlayerCrouchEvent());
+                wasCrouching = true;
             }
-            else
+
+            if (!_input.crouch && wasCrouching)
             {
+                Debug.Log("Crouch released");
                 EventBus.Publish(new PlayerUncrouchEvent());
+                wasCrouching = false;
             }
+
 
 
 
