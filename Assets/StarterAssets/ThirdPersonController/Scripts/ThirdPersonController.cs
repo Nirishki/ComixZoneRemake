@@ -72,7 +72,8 @@ namespace StarterAssets
 
         private bool _shouldRotate = false;
         private float _desiredRotationY = 0f;
-        private bool wasCrouching = false;
+
+       // private bool wasCrouching = false;
 
 
 
@@ -124,27 +125,27 @@ namespace StarterAssets
 
             /////////TEST///////
             ///
-
-
-            if (_input.crouch && !wasCrouching)
+            if (_input.punch)
             {
-                InputBuffer.Instance.Add(InputType.Crouch);
-                Debug.Log("Crouch pressed"); 
-                EventBus.Publish(new PlayerCrouchEvent());
-                wasCrouching = true;
+                Debug.Log("PUNCH PRESSED");
+                InputBuffer.Instance.Add(InputType.Punch);
+                _input.punch = false;
             }
 
-            if (!_input.crouch && wasCrouching)
-            {
-                Debug.Log("Crouch released");
-                EventBus.Publish(new PlayerUncrouchEvent());
-                wasCrouching = false;
-            }
+            //if (_input.crouch && !wasCrouching)
+            //{
+            //    InputBuffer.Instance.Add(InputType.Crouch);
+            //    Debug.Log("Crouch pressed"); 
+            //    EventBus.Publish(new PlayerCrouchEvent());
+            //    wasCrouching = true;
+            //}
 
-
-
-
-
+            //if (!_input.crouch && wasCrouching)
+            //{
+            //    Debug.Log("Crouch released");
+            //    EventBus.Publish(new PlayerUncrouchEvent());
+            //    wasCrouching = false;
+            //}
 
         }
 
@@ -228,7 +229,7 @@ namespace StarterAssets
             if (_shouldRotate)
             {
                 float currentY = transform.eulerAngles.y;
-                if (currentY > 180f) currentY -= 360f; 
+                if (currentY > 180f) currentY -= 360f;
 
                 float newY = Mathf.SmoothDampAngle(currentY, _desiredRotationY, ref _rotationVelocity, RotationSmoothTime);
                 transform.rotation = Quaternion.Euler(0, newY, 0);

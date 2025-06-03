@@ -47,14 +47,10 @@ public static class EventBus
 
             Delegate updated = Delegate.Remove(current, listener);
 
-            if (updated != null)
-            {
+            if (updated == null)
                 listeners.Remove(type);
-            }
             else
-            {
                 listeners[type] = updated;
-            }
         }
     }
 }

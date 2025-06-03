@@ -65,7 +65,16 @@
                     "id": "d83fabd2-7670-43d5-9f92-2063fdaebc38",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LookUp",
+                    "type": "Button",
+                    "id": "c1e9cd95-56dd-4a75-b460-7d210654e716",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -227,7 +236,7 @@
                 {
                     "name": "",
                     "id": "d1f75e53-74fc-4cce-b4b5-b7b6f5054eda",
-                    "path": "<Keyboard>/h",
+                    "path": "<Keyboard>/g",
                     "interactions": "",
                     "processors": "",
                     "groups": ";KeyboardMouse",
@@ -243,6 +252,17 @@
                     "processors": "",
                     "groups": ";KeyboardMouse",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cb5a106-d717-49be-b93b-82cb31b0ec27",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "LookUp",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

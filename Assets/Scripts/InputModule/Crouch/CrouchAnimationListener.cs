@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class CrouchAnimationListener : MonoBehaviour
 {
@@ -22,11 +22,12 @@ public class CrouchAnimationListener : MonoBehaviour
         animationDriver.SetBool("IsCrouching", true);
     }
 
-    private void OnUncrouchEvent(PlayerUncrouchEvent evt)
+    private void OnUncrouchEvent(PlayerUncrouchEvent e)
     {
-        Debug.Log("Crouch Released Event Triggered"); // ? çùåá
+        Debug.Log("â–º Un-crouch event received");
         animationDriver.SetBool("IsCrouching", false);
     }
+
 
 
 }
